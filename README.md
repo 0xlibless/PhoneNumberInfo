@@ -1,42 +1,77 @@
+# PhoneNumber OSINT tool
 
-# PhoneNumber info search
-
-A basic script that combines multiple tools into one
-- Google search
-- Number Verification API (NEED APIKEY)
-- TrueCaller (NEED A ACCOUNT)
+Script para obtener informacion OSINT basica de uno o varios numeros de telefono.
 
 
 
-## Requirements
+## Caracteristicas
 
-The script need you to have this module installed:
+- Devuelve:
+	- validez del numero
+	- formato local e internacional
+	- prefijo y codigo de pais
+	- nombre del pais y ubicacion
+	- operador
+	- tipo de linea
+	- zonas horarias
+- Ademas de (en una pestaña de navegador):
+	- busqueda de clima de la zona
+	- busqueda del operador
+	- consulta en Truecaller
+
+
+## Instalacion
+
+1. Clona el repositorio y entra a la carpeta:
 
 ```bash
-$ pip install requests
+git clone https://github.com/0xlibless/PhoneNumberInfo.git
+cd PhoneNumberInfo
 ```
 
-And an account with: https://www.truecaller.com 
-## TOKENS
+2. Crea y activa un entorno virtual:
 
-The script also requires a apikey from "Number Verification API" in:
-
-https://apilayer.com/marketplace/number_verification-api?utm_source=apilayermarketplace&utm_medium=featured
-
-![alt apiscreenshot](https://github.com/0xlibless/NumberPhoneInfo/blob/main/screenshot.png?raw=true)
-
-Also past the key in TOKEN:
-
-```PYTHON
-# Peticion
-payload = {}
-headers= {
-  "apikey": TOKEN
-}
-response = requests.request("GET", url, headers=headers, data = payload)
-status_code = response.status_code
-result = response.json()
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
 ```
-## How it works?
-- The script sends a request to TrueCaller, which returns a lot of information
-- Then several Google Chrome windows will open where you will find the weather of the location of the phone number, results of the telephone service, and TrueCaller, which if available, shows us the name of the person who owns the number
+
+3. Instala dependencias:
+
+```bash
+pip install -r requirements.txt
+```
+
+## Uso
+
+Puedes usar el script de forma interactiva o por argumentos.
+
+### Modo interactivo
+
+```bash
+python main.py
+```
+
+El programa te pedira que pegues uno o varios numeros, por ejemplo:
+
+```text
++123456789012, +123456789012
+```
+
+### Modo por argumento
+
+```bash
+python main.py --numero "+123456789012"
+```
+
+Con varios numeros:
+
+```bash
+python main.py -n "+123456789012, +123456789012"
+```
+
+Para evitar que se abra el navegador:
+
+```bash
+python main.py -n "+123456789012" --nobrowser
+```
