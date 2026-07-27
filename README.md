@@ -1,76 +1,75 @@
 # PhoneNumber OSINT tool
 
-Script para obtener informacion OSINT basica de uno o varios numeros de telefono.
+Script to obtain basic OSINT information from one or several phone numbers.
 
 
+## Features
 
-## Caracteristicas
-
-- Devuelve:
-	- validez del numero
-	- formato local e internacional
-	- prefijo y codigo de pais
-	- nombre del pais y ubicacion
-	- operador
-	- tipo de linea
-	- zonas horarias
-- Ademas de (en una pestaña de navegador):
-	- busqueda de clima de la zona
-	- busqueda del operador
-	- consulta en Truecaller
+- Returns:
+	- number validity
+	- local and international format
+	- prefix and country code
+	- country name and location
+	- operator
+	- line type
+	- time zones
+- Additionally (in a browser tab):
+	- weather search for the area
+	- operator search
+	- Truecaller query
 
 
-## Instalacion
+## Installation
 
-1. Clona el repositorio y entra a la carpeta:
+1. Clone the repository and enter the folder:
 
 ```bash
 git clone https://github.com/0xlibless/PhoneNumberInfo.git
 cd PhoneNumberInfo
 ```
 
-2. Crea y activa un entorno virtual:
+2. Create and activate a virtual environment:
 
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
 ```
 
-3. Instala dependencias:
+3. Install dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-## Uso
+## Usage
 
-Puedes usar el script de forma interactiva o por argumentos.
+You can use the script interactively or via arguments.
 
-### Modo interactivo
+### Interactive Mode
 
 ```bash
 python main.py
 ```
 
-El programa te pedira que pegues uno o varios numeros, por ejemplo:
+The program will ask you to paste one or several numbers, for example:
 
 ```text
 +123456789012, +123456789012
 ```
 
-### Modo por argumento
+### Argument Mode
 
 ```bash
 python main.py --numero "+123456789012"
 ```
 
-Con varios numeros:
+With several numbers:
 
 ```bash
 python main.py -n "+123456789012, +123456789012"
 ```
 
-Para evitar que se abra el navegador:
+To prevent the browser from opening:
 
 ```bash
 python main.py -n "+123456789012" --nobrowser
